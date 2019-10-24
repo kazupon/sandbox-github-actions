@@ -5,5 +5,7 @@ jobs:
   build:
     name: Greeting
     runs-on: ubuntu-latest
+    container:
+      image: node
     steps:
-      - run: echo "Hello, World!"
+      - run: node -e 'console.log("Hello, World at node.js !");'
