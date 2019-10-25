@@ -1,0 +1,18 @@
+name: GitHub Issue Commenter
+on:
+  issue_comment:
+    types: [created]
+    
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@0.2.0
+        with:
+          github-token: ${{github.token}}
+          script: |
+            github.issues.createComment({...context.issue, body: '🤡こんにちは！'})
+      - name: debug
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "${GITHUB_CONTEXT}"
