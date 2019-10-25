@@ -1,5 +1,9 @@
 name: If
-on: pull_request
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review, closed]
+  pull_request_review:
+    types: [submitted, edited, dismissed]
 
 jobs:
   if-pull-request-is-opened:
@@ -9,3 +13,7 @@ jobs:
       - name: echo if pull request is opened
         if: github.event_name == 'pull_request' && github.event.action == 'opened'
         run: echo "pull request is opened"
+      - name: echo all
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "${GITHUB_CONTEXT}"
