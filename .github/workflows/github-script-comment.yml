@@ -11,8 +11,7 @@ jobs:
         with:
           github-token: ${{github.token}}
           script: |
-            console.log('context', context)
-            github.issues.createComment({...context.issue, body: '🤡こんにちは！'})
+            github.issues.createComment({...context.issue, body: `@${context.comment.user.login} こんにちは！🤡` })
       - name: debug
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
