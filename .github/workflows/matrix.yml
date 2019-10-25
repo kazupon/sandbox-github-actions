@@ -13,5 +13,5 @@ jobs:
       - name: Set Node.js
         uses: actions/setup-node@v1
         with:
-          version: ${{ matrix.node }}
+          node-version: ${{ matrix.node }}
       - run: node -v
