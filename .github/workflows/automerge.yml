@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Merge pull requests
-      uses: pascalgn/automerge-action@v0.4.2
+      uses: pascalgn/automerge-action@a7a731467672c853f76342a06615311a787d5591
       env:
         GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
         LABELS: "!wip,!work in progress"
