@@ -11,3 +11,5 @@ This is sandbox project for github actions.
 :hatching_chick: hi!
 
 :hammer: configration!
+
+NORMAL PR TEST!
