@@ -23,3 +23,6 @@ jobs:
       uses: pascalgn/automerge-action@v0.4.2
       env:
         GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+        LABELS: "!wip,!work in progress,docs,documentation-updated"
+        MERGE_METHOD: "squash"
+        COMMIT_MESSAGE_TEMPLATE: "pull-request-title"
