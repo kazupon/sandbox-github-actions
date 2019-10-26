@@ -9,3 +9,5 @@ This is sandbox project for github actions.
 :boom: fire!!
 
 :hatching_chick: hi!
+
+:hammer: configration!
