@@ -8,7 +8,8 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
-        node: [6, 8, 10]
+        node: [8, 10]
+        #node: [6, 8, 10]
     steps:
       - uses: actions/checkout@v1
       - name: Set Node.js
