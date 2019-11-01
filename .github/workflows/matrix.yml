@@ -10,8 +10,11 @@ jobs:
         os: [ubuntu-latest, windows-latest]
         node: [6, 8, 10]
     steps:
+      - uses: actions/checkout@v1
       - name: Set Node.js
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node }}
-      - run: node -v
+      - name: npm install
+        run: |
+          npm install
