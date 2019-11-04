@@ -27,5 +27,5 @@ jobs:
       - name: Test
         run: npm run test
 
-      - name: @vue/cli version
+      - name: vue/cli version
         run: npx vue -V
