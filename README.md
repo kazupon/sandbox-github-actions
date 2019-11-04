@@ -13,5 +13,3 @@ This is sandbox project for github actions.
 :hammer: configration!
 
 :shirt: refactoring!
-
-:hammer: earchquake!
