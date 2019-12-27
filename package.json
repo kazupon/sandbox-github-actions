@@ -1,29 +1,41 @@
 {
   "name": "sandbox-github-actions",
-  "version": "0.0.0",
-  "private": true,
   "description": "This is sandbox project for github actions.",
-  "main": "index.js",
-  "scripts": {
-    "build": "echo \"build!\"",
-    "test": "echo \"test!\"",
-    "release:prepare": "shipjs prepare",
-    "release:trigger": "shipjs trigger"
+  "version": "0.0.0",
+  "bugs": {
+    "url": "https://github.com/kazupon/sandbox-github-actions/issues"
   },
+  "changelog": {
+    "labels": {
+      "Type: Feature": ":star: Features",
+      "Type: Bug": ":bug: Bug Fixes",
+      "Type: Security": ":lock: Security Fixes",
+      "Type: Performance": ":chart_with_upwards_trend: Performance Fixes",
+      "Type: Improvement": ":zap: Improvement Features",
+      "Type: Breaking": ":boom: Breaking Change",
+      "Type: Deprecated": ":warning: Deprecated Features",
+      "Type: I18n": ":globe_with_meridians: Internationalization",
+      "Type: A11y": ":wheelchair: Accessibility",
+      "Type: Documentation": ":pencil: Documentation"
+    }
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "lerna-changelog": "^1.0.0",
+    "shipjs": "0.12.1"
+  },
+  "homepage": "https://github.com/kazupon/sandbox-github-actions#readme",
+  "license": "MIT",
+  "main": "index.js",
+  "private": true,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kazupon/sandbox-github-actions.git"
   },
-  "author": "",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/kazupon/sandbox-github-actions/issues"
-  },
-  "homepage": "https://github.com/kazupon/sandbox-github-actions#readme",
-  "dependencies": {
-    "@vue/cli": "^4.0.5"
-  },
-  "devDependencies": {
-    "shipjs": "0.12.1"
+  "scripts": {
+    "build": "echo \"build!\"",
+    "release:prepare": "shipjs prepare",
+    "release:trigger": "shipjs trigger",
+    "test": "echo \"test!\""
   }
 }
