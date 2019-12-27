@@ -1,8 +1,10 @@
 
 name: Ship js Manual Prepare
+
 on:
   issue_comment:
     types: [created]
+    
 jobs:
   manual_prepare:
     if: |
