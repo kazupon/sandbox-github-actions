@@ -1,4 +1,14 @@
 
+## v0.0.3 (2019-12-27)
+
+#### :bug: Bug Fixes
+* [#26](https://github.com/kazupon/sandbox-github-actions/pull/26) fix workflow ([@kazupon](https://github.com/kazupon))
+* [#25](https://github.com/kazupon/sandbox-github-actions/pull/25) fix workflow ([@kazupon](https://github.com/kazupon))
+
+#### Committers: 1
+- kazuya kawaguchi ([@kazupon](https://github.com/kazupon))
+
+
 ## v0.0.2 (2019-12-27)
 
 #### :zap: Improvement Features
