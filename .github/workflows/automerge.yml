@@ -27,4 +27,5 @@ jobs:
         LABELS: "!wip,!work in progress"
         MERGE_METHOD: "squash"
         COMMIT_MESSAGE_TEMPLATE: "pull-request-title"
+    - name: echo github context
       run: echo "${GITHUB_CONTEXT}"
