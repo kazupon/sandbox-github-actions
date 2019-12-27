@@ -6,7 +6,9 @@
   "main": "index.js",
   "scripts": {
     "build": "echo \"build!\"",
-    "test": "echo \"test!\""
+    "test": "echo \"test!\"",
+    "release:prepare": "shipjs prepare",
+    "release:trigger": "shipjs trigger"
   },
   "repository": {
     "type": "git",
@@ -20,5 +22,8 @@
   "homepage": "https://github.com/kazupon/sandbox-github-actions#readme",
   "dependencies": {
     "@vue/cli": "^4.0.5"
+  },
+  "devDependencies": {
+    "shipjs": "0.12.1"
   }
 }
