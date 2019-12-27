@@ -8,6 +8,7 @@ on:
 jobs:
   release:
     name: Release
+    if: github.event.pull_request.merged == true && contains(gihub.event.labels, 'release')
     runs-on: Ubuntu-latest
     steps:
       - uses: actions/checkout@master
@@ -22,7 +23,6 @@ jobs:
             npm install
           fi
       - run: npm run release:trigger
-        if: github.event.pull_request.merged == true && contains(gihub.event.labels, 'release')
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
