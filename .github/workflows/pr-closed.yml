@@ -1,0 +1,13 @@
+name: PR Close Trigger
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+    - name: echo github context
+      env:
+        GITHUB_CONTEXT: ${{ toJson(github) }}
+      run: echo "${GITHUB_CONTEXT}"
