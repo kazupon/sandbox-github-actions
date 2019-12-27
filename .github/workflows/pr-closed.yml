@@ -1,7 +1,8 @@
 name: PR Close Trigger
 on:
   pull_request:
-    types: [closed]
+    types:
+      - closed
 
 jobs:
   release:
