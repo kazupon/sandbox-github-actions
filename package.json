@@ -22,7 +22,7 @@
   "dependencies": {},
   "devDependencies": {
     "lerna-changelog": "^1.0.0",
-    "shipjs": "0.12.1"
+    "shipjs": "^0.13.1"
   },
   "homepage": "https://github.com/kazupon/sandbox-github-actions#readme",
   "license": "MIT",
