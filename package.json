@@ -1,7 +1,7 @@
 {
   "name": "sandbox-github-actions",
   "description": "This is sandbox project for github actions.",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "bugs": {
     "url": "https://github.com/kazupon/sandbox-github-actions/issues"
   },
