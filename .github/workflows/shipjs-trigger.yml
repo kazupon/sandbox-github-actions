@@ -1,9 +1,11 @@
-name: Ship js trigger
+name: Release
 
 on:
   pull_request:
     types:
       - closed
+    branches:
+      - 'releases/**'
 
 jobs:
   release:
@@ -11,11 +13,19 @@ jobs:
     if: github.event.pull_request.merged == true && contains(github.event.pull_request.labels.*.name, 'release')
     runs-on: Ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
+        with:
+          ref: master
       - uses: actions/setup-node@v1
         with:
           registry-url: "https://registry.npmjs.org"
-      - run: git switch master
+      - uses: actions/cache@v1
+        id: cache
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-
       - run: |
           if [ -f "yarn.lock" ]; then
             yarn install
