@@ -1,4 +1,13 @@
 
+## v0.0.7 (2020-01-12)
+
+#### :zap: Improvement Features
+* [#34](https://github.com/kazupon/sandbox-github-actions/pull/34) fix: upgrade ([@kazupon](https://github.com/kazupon))
+
+#### Committers: 1
+- kazuya kawaguchi ([@kazupon](https://github.com/kazupon))
+
+
 ## v0.0.6 (2020-01-12)
 
 #### :zap: Improvement Features
