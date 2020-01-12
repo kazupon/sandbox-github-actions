@@ -1,14 +1,39 @@
-name: PR Close Trigger
+name: Release
+
 on:
   pull_request:
     types:
       - closed
+    branches:
+      - 'releases/**'
 
 jobs:
   release:
-    runs-on: ubuntu-latest
+    name: Release
+    if: github.event.pull_request.merged == true && contains(github.event.pull_request.labels.*.name, 'release')
+    runs-on: Ubuntu-latest
     steps:
-    - name: echo github context
-      env:
-        GITHUB_CONTEXT: ${{ toJson(github) }}
-      run: echo "${GITHUB_CONTEXT}"
+      - uses: actions/checkout@v2
+        with:
+          ref: master
+      - uses: actions/setup-node@v1
+        with:
+          registry-url: "https://registry.npmjs.org"
+      - uses: actions/cache@v1
+        id: cache
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-
+      - run: |
+          if [ -f "yarn.lock" ]; then
+            yarn install
+          else
+            npm install
+          fi
+      - run: npm run release:trigger
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+          SLACK_INCOMING_HOOK: ${{ secrets.SLACK_INCOMING_HOOK }}
