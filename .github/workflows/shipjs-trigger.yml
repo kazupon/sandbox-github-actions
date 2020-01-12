@@ -4,9 +4,12 @@ on:
   pull_request:
     types:
       - closed
-    branches:
-      - 'releases/**'
-
+    #branches:
+    #  - 'releases/**'
+    tags:
+      - '!*'
+    paths:
+      - 'CHANGELOG.md'
 jobs:
   release:
     name: Release
