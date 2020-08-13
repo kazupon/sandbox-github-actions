@@ -7,14 +7,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: get package.json
-        id: vars
+        id: data
         run: |
           echo "::set-output name=package::$(cat package.json | tr -d '\n')"
       - name: Test output
         run: |
-          echo '${{ steps.vars.outputs.package }}' | jq '.[]'
+          echo '${{ steps.data.outputs.package }}' | jq '.[]'
         env:
-          JSON_DUMP: ${{ steps.data.outputs.package }}
+          JSON_DUMP: ${{ toJSON(steps.data.outputs.package) }}
       - uses: actions/github-script@v2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
