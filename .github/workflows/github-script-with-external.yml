@@ -11,7 +11,7 @@ jobs:
         run: echo ::set-output name=vars::$(cat package.json | tr -d '\n')
       - name: Test output
         run: |
-          echo '${{ steps.vars.outputs.package }}' | jq '.[]'
+          echo '${{ fromJson(steps.vars.outputs.package) }}' | jq '.[]'
         #env:
         #  JSON_DUMP: ${{ steps.data.outputs.package }}
       - uses: actions/github-script@v2
