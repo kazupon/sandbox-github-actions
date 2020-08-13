@@ -1,3 +1,4 @@
-module.exports = ({ github, context, core, io }) => {
+module.exports = ({ github, context, core, io }, data) => {
+  console.log('data', data)
   return context.payload
 }
