@@ -11,7 +11,7 @@ jobs:
         run: echo ::set-output name=package::$(cat package.json)
       - name: Test output
         run: |
-          echo ${{ steps.vars.outputs.package }} | jq '.[]'
+          echo '${{ steps.vars.outputs.package }}' | jq '.[]'
       - uses: actions/github-script@v2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
