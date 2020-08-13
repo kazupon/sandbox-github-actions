@@ -13,7 +13,7 @@ jobs:
         run: |
           echo '${{ steps.data.outputs.package }}' | jq '.[]'
         env:
-          JSON_DUMP: ${{ toJSON(steps.data.outputs.package) }}
+          JSON_DUMP: ${{ steps.data.outputs.package }}
       - uses: actions/github-script@v2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
