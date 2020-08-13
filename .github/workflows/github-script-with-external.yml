@@ -8,10 +8,11 @@ jobs:
       - uses: actions/checkout@v2
       - name: get package.json
         id: vars
-        run: echo ::set-output name=vars::$(cat package.json | tr -d '\n')
+        run: |
+          echo "::set-output name=vars::$(cat package.json | tr -d '\n')"
       - name: Test output
         run: |
-          echo '${{ fromJson(steps.vars.outputs.package) }}' | jq '.[]'
+          echo '${{ steps.vars.outputs.package }}' | jq '.[]'
         #env:
         #  JSON_DUMP: ${{ steps.data.outputs.package }}
       - uses: actions/github-script@v2
