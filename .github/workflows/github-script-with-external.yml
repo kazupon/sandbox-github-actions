@@ -1,0 +1,13 @@
+name: GitHub Script with External
+on: push
+    
+jobs:
+  external:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const script = require(`${process.env.GITHUB_WORKSPACE}/../../external.js`)
+            console.log(script({ github, context, core, io }))
