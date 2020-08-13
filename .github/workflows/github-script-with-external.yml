@@ -9,5 +9,5 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const script = require(`${process.env.GITHUB_WORKSPACE}/external.js`)
+            const script = require(`${process.env.GITHUB_WORKSPACE}/../external.js`)
             console.log(script({ github, context, core, io }))
