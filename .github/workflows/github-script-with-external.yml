@@ -7,14 +7,16 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: get package.json
-        id: vars
-        run: echo ::set-output name=vars::$(cat package.json)
+        id: data
+        run: echo ::set-output name=data::$(cat package.json)
       - name: Test output
         run: |
-          echo '${{ steps.vars.outputs.package }}' | jq '.[]'
+          echo '${{ steps.data.outputs.package }}' | jq '.[]'
+        env:
+          JSON_DUMP: ${{ toJSON(steps.data.outputs.package) }}
       - uses: actions/github-script@v2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const script = require(`${process.env.GITHUB_WORKSPACE}/external.js`)
-            console.log(script({ github, context, core, io }, ${{ toJson(steps.vars.outputs.package) }}))
+            console.log(script({ github, context, core, io }, process.env.JSON_DUMP))
