@@ -28,6 +28,6 @@ module.exports = async ({ github, context, core, io }, data) => {
     authorization: process.env.GITHUB_TOKEN
   }
 }*/)
-  console.log('res', res)
+  console.log('res', JSON.stringify(res))
   return context
 }
