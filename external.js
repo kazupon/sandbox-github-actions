@@ -23,7 +23,11 @@ module.exports = async ({ github, context, core, io }, data) => {
       }
     }
   }
-`, {})
+`, {
+  headers: {
+    authorization: process.env.GITHUB_TOKEN
+  }
+})
   console.log('repo', repo)
   return context
 }
