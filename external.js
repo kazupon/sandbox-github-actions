@@ -13,11 +13,22 @@ module.exports = async ({ github, context, core, io }, data) => {
   const res = await github.graphql(
 `
   {
-    repository(owner: "kazupon", name: "sandbox-github-actions") {
-      issues(last: 3) {
-        edges {
-          node {
-            title
+    repository(owner: "kazupon", name: "vue-i18n") {
+      target {
+        ... on Commit {
+          author {
+            name
+          }
+          blame(path:"package.json") {
+            ranges {
+              commit {
+                author {
+                  name
+                }
+              }
+              startingLine
+              endingLine
+            }
           }
         }
       }
