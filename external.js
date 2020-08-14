@@ -10,7 +10,7 @@ module.exports = async ({ github, context, core, io }, data) => {
   //   body: 'this is test'
   // })
   // console.log('github', github)
-  const data = await github.graphql(
+  const res = await github.graphql(
 `
   {
     repository(owner: "kazupon", name: "sandbox-github-actions") {
@@ -28,6 +28,6 @@ module.exports = async ({ github, context, core, io }, data) => {
     authorization: process.env.GITHUB_TOKEN
   }
 }*/)
-  console.log('data', data)
+  console.log('res', res)
   return context
 }
