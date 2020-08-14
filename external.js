@@ -14,20 +14,23 @@ module.exports = async ({ github, context, core, io }, data) => {
 `
   {
     repository(owner: "kazupon", name: "vue-i18n") {
-      target {
-        ... on Commit {
-          author {
-            name
-          }
-          blame(path:"package.json") {
-            ranges {
-              commit {
-                author {
-                  name
+      ref(qualifiedName:"master") {  
+        name
+        target {
+          ... on Commit {
+            author {
+              name
+            }
+            blame(path:"src/index.js") {
+              ranges {
+                commit {
+                  author {
+                    name
+                  }
                 }
+                startingLine
+                endingLine
               }
-              startingLine
-              endingLine
             }
           }
         }
