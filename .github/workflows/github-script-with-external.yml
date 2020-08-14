@@ -20,4 +20,6 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const script = require(`${process.env.GITHUB_WORKSPACE}/external.js`)
-            console.log(script({ github, context, core, io }, ${{ steps.data.outputs.package }}))
+            script({ github, context, core, io }, ${{ steps.data.outputs.package }})
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

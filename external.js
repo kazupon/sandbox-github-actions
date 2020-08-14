@@ -9,7 +9,7 @@ module.exports = async ({ github, context, core, io }, data) => {
   //   title: 'test test',
   //   body: 'this is test'
   // })
-  console.log('github', github)
+  // console.log('github', github)
   const { repo } = await github.graphql(
 `
   {
