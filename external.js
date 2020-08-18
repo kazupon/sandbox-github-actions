@@ -73,7 +73,7 @@ function createReports(blob, data) {
       target.messages = item.messages.map(msg => {
         return `
 ### \`${msg.message}\`
-https://github.com/kazupon/sandbox-github-actions/blob/${blob}/${target.file}#L${msg.line}-L${msg.endLine}
+https://github.com/kazupon/sandbox-github-actions/blob/${blob}/packages/${target.file}#L${msg.line}-L${msg.endLine}
 `;
       });
       pkg.targets.push(target);
