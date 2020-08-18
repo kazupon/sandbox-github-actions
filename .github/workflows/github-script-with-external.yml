@@ -15,6 +15,9 @@ jobs:
         id: data
         run: |
           echo "::set-output name=package::$(cat package.json | tr -d '\n')"
+      - name: Install
+        run: |
+          npm install
       - name: Run eslint with eslint-plugin-vue-i18n
         run: |
           npm run lint:i18n -- -f json -o i18n-lint-raw-report.json
