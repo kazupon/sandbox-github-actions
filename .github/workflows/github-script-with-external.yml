@@ -15,11 +15,18 @@ jobs:
           echo '${{ steps.data.outputs.package }}' | jq '.[]'
         env:
           JSON_DUMP: ${{ toJSON(steps.data.outputs.package) }}
-      - uses: actions/github-script@v2
+      - name: Run eslint with eslint-plugin-vue-i18n
+        run: |
+          npm run lint:i18n -- -f json -o i18n-lint-raw-report.json
+      - name: Filter eslint report
+        run: |
+          cat ./i18n-lint-raw-report.json | jq '[ .[] | select(.messages | length > 0) ] | .[] |= . + (.filePath | capture(".*packages\/(?<package>[a-zA-Z0-9_\\-]+)")) | group_by(.package)' > i18n-lint-report.json
+      - name: Register i18n issues
+        uses: actions/github-script@v2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const script = require(`${process.env.GITHUB_WORKSPACE}/external.js`)
-            script({ github, context, core, io }, ${{ steps.data.outputs.package }})
+            script({ github, context, core, io })
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

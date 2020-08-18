@@ -1,0 +1,410 @@
+[
+  [
+    {
+      "filePath": "/Users/kazuya.kawaguchi/Projects/my/sandbox-github-actions/packages/package1/src/components/HelloWorld.vue",
+      "messages": [
+        {
+          "ruleId": "@intlify/vue-i18n/no-raw-text",
+          "severity": 1,
+          "message": "raw text '\n      For a guide and recipes on how to configure / customize this project,' is used",
+          "line": 4,
+          "column": 8,
+          "nodeType": null,
+          "endLine": 5,
+          "endColumn": 76
+        },
+        {
+          "ruleId": "@intlify/vue-i18n/no-raw-text",
+          "severity": 1,
+          "message": "raw text '\n      check out the\n      ' is used",
+          "line": 5,
+          "column": 80,
+          "nodeType": null,
+          "endLine": 7,
+          "endColumn": 7
+        },
+        {
+          "ruleId": "@intlify/vue-i18n/no-raw-text",
+          "severity": 1,
+          "message": "raw text 'vue-cli documentation' is used",
+          "line": 7,
+          "column": 70,
+          "nodeType": null,
+          "endLine": 7,
+          "endColumn": 91
+        },
+        {
+          "ruleId": "@intlify/vue-i18n/no-raw-text",
+          "severity": 1,
+          "message": "raw text '.\n    ' is used",
+          "line": 7,
+          "column": 95,
+          "nodeType": null,
+          "endLine": 8,
+          "endColumn": 5
+        },
+        {
+          "ruleId": "@intlify/vue-i18n/no-raw-text",
+          "severity": 1,
+          "message": "raw text 'Installed CLI Plugins' is used",
+          "line": 9,
+          "column": 9,
+          "nodeType": null,
+          "endLine": 9,
+          "endColumn": 30
+        },
+        {
+          "ruleId": "@intlify/vue-i18n/no-raw-text",
+          "severity": 1,
+          "message": "raw text 'babel' is used",
+          "line": 11,
+          "column": 127,
+          "nodeType": null,
+          "endLine": 11,
+          "endColumn": 132
+        },
+        {
+          "ruleId": "@intlify/vue-i18n/no-raw-text",
+          "severity": 1,
+          "message": "raw text 'eslint' is used",
+          "line": 12,
+          "column": 128,
+          "nodeType": null,
+          "endLine": 12,
+          "endColumn": 134
+        },
+        {
+          "ruleId": "@intlify/vue-i18n/no-raw-text",
+          "severity": 1,
+          "message": "raw text 'Essential Links' is used",
+          "line": 14,
+          "column": 9,
+          "nodeType": null,
+          "endLine": 14,
+          "endColumn": 24
+        },
+        {
+          "ruleId": "@intlify/vue-i18n/no-raw-text",
+          "severity": 1,
+          "message": "raw text 'Core Docs' is used",
+          "line": 16,
+          "column": 70,
+          "nodeType": null,
+          "endLine": 16,
+          "endColumn": 79
+        },
+        {
+          "ruleId": "@intlify/vue-i18n/no-raw-text",
+          "severity": 1,
+          "message": "raw text 'Forum' is used",
+          "line": 17,
+          "column": 76,
+          "nodeType": null,
+          "endLine": 17,
+          "endColumn": 81
+        },
+        {
+          "ruleId": "@intlify/vue-i18n/no-raw-text",
+          "severity": 1,
+          "message": "raw text 'Community Chat' is used",
+          "line": 18,
+          "column": 75,
+          "nodeType": null,
+          "endLine": 18,
+          "endColumn": 89
+        },
+        {
+          "ruleId": "@intlify/vue-i18n/no-raw-text",
+          "severity": 1,
+          "message": "raw text 'Twitter' is used",
+          "line": 19,
+          "column": 78,
+          "nodeType": null,
+          "endLine": 19,
+          "endColumn": 85
+        },
+        {
+          "ruleId": "@intlify/vue-i18n/no-raw-text",
+          "severity": 1,
+          "message": "raw text 'News' is used",
+          "line": 20,
+          "column": 75,
+          "nodeType": null,
+          "endLine": 20,
+          "endColumn": 79
+        },
+        {
+          "ruleId": "@intlify/vue-i18n/no-raw-text",
+          "severity": 1,
+          "message": "raw text 'Ecosystem' is used",
+          "line": 22,
+          "column": 9,
+          "nodeType": null,
+          "endLine": 22,
+          "endColumn": 18
+        },
+        {
+          "ruleId": "@intlify/vue-i18n/no-raw-text",
+          "severity": 1,
+          "message": "raw text 'vue-router' is used",
+          "line": 24,
+          "column": 77,
+          "nodeType": null,
+          "endLine": 24,
+          "endColumn": 87
+        },
+        {
+          "ruleId": "@intlify/vue-i18n/no-raw-text",
+          "severity": 1,
+          "message": "raw text 'vuex' is used",
+          "line": 25,
+          "column": 75,
+          "nodeType": null,
+          "endLine": 25,
+          "endColumn": 79
+        },
+        {
+          "ruleId": "@intlify/vue-i18n/no-raw-text",
+          "severity": 1,
+          "message": "raw text 'vue-devtools' is used",
+          "line": 26,
+          "column": 103,
+          "nodeType": null,
+          "endLine": 26,
+          "endColumn": 115
+        },
+        {
+          "ruleId": "@intlify/vue-i18n/no-raw-text",
+          "severity": 1,
+          "message": "raw text 'vue-loader' is used",
+          "line": 27,
+          "column": 81,
+          "nodeType": null,
+          "endLine": 27,
+          "endColumn": 91
+        },
+        {
+          "ruleId": "@intlify/vue-i18n/no-raw-text",
+          "severity": 1,
+          "message": "raw text 'awesome-vue' is used",
+          "line": 28,
+          "column": 89,
+          "nodeType": null,
+          "endLine": 28,
+          "endColumn": 100
+        }
+      ],
+      "errorCount": 0,
+      "warningCount": 19,
+      "fixableErrorCount": 0,
+      "fixableWarningCount": 0,
+      "source": "<template>\n  <div class=\"hello\">\n    <h1>{{ msg }}</h1>\n    <p>\n      For a guide and recipes on how to configure / customize this project,<br>\n      check out the\n      <a href=\"https://cli.vuejs.org\" target=\"_blank\" rel=\"noopener\">vue-cli documentation</a>.\n    </p>\n    <h3>Installed CLI Plugins</h3>\n    <ul>\n      <li><a href=\"https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel\" target=\"_blank\" rel=\"noopener\">babel</a></li>\n      <li><a href=\"https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint\" target=\"_blank\" rel=\"noopener\">eslint</a></li>\n    </ul>\n    <h3>Essential Links</h3>\n    <ul>\n      <li><a href=\"https://vuejs.org\" target=\"_blank\" rel=\"noopener\">Core Docs</a></li>\n      <li><a href=\"https://forum.vuejs.org\" target=\"_blank\" rel=\"noopener\">Forum</a></li>\n      <li><a href=\"https://chat.vuejs.org\" target=\"_blank\" rel=\"noopener\">Community Chat</a></li>\n      <li><a href=\"https://twitter.com/vuejs\" target=\"_blank\" rel=\"noopener\">Twitter</a></li>\n      <li><a href=\"https://news.vuejs.org\" target=\"_blank\" rel=\"noopener\">News</a></li>\n    </ul>\n    <h3>Ecosystem</h3>\n    <ul>\n      <li><a href=\"https://router.vuejs.org\" target=\"_blank\" rel=\"noopener\">vue-router</a></li>\n      <li><a href=\"https://vuex.vuejs.org\" target=\"_blank\" rel=\"noopener\">vuex</a></li>\n      <li><a href=\"https://github.com/vuejs/vue-devtools#vue-devtools\" target=\"_blank\" rel=\"noopener\">vue-devtools</a></li>\n      <li><a href=\"https://vue-loader.vuejs.org\" target=\"_blank\" rel=\"noopener\">vue-loader</a></li>\n      <li><a href=\"https://github.com/vuejs/awesome-vue\" target=\"_blank\" rel=\"noopener\">awesome-vue</a></li>\n    </ul>\n  </div>\n</template>\n\n<script>\nexport default {\n  name: 'HelloWorld',\n  props: {\n    msg: String\n  }\n}\n</script>\n\n<!-- Add \"scoped\" attribute to limit CSS to this component only -->\n<style scoped>\nh3 {\n  margin: 40px 0 0;\n}\nul {\n  list-style-type: none;\n  padding: 0;\n}\nli {\n  display: inline-block;\n  margin: 0 10px;\n}\na {\n  color: #42b983;\n}\n</style>\n",
+      "usedDeprecatedRules": [],
+      "package": "package1"
+    }
+  ],
+  [
+    {
+      "filePath": "/Users/kazuya.kawaguchi/Projects/my/sandbox-github-actions/packages/package2/src/components/HelloWorld.vue",
+      "messages": [
+        {
+          "ruleId": "@intlify/vue-i18n/no-raw-text",
+          "severity": 1,
+          "message": "raw text '\n      For a guide and recipes on how to configure / customize this project,' is used",
+          "line": 4,
+          "column": 8,
+          "nodeType": null,
+          "endLine": 5,
+          "endColumn": 76
+        },
+        {
+          "ruleId": "@intlify/vue-i18n/no-raw-text",
+          "severity": 1,
+          "message": "raw text '\n      check out the\n      ' is used",
+          "line": 5,
+          "column": 80,
+          "nodeType": null,
+          "endLine": 7,
+          "endColumn": 7
+        },
+        {
+          "ruleId": "@intlify/vue-i18n/no-raw-text",
+          "severity": 1,
+          "message": "raw text 'vue-cli documentation' is used",
+          "line": 7,
+          "column": 70,
+          "nodeType": null,
+          "endLine": 7,
+          "endColumn": 91
+        },
+        {
+          "ruleId": "@intlify/vue-i18n/no-raw-text",
+          "severity": 1,
+          "message": "raw text '.\n    ' is used",
+          "line": 7,
+          "column": 95,
+          "nodeType": null,
+          "endLine": 8,
+          "endColumn": 5
+        },
+        {
+          "ruleId": "@intlify/vue-i18n/no-raw-text",
+          "severity": 1,
+          "message": "raw text 'Installed CLI Plugins' is used",
+          "line": 9,
+          "column": 9,
+          "nodeType": null,
+          "endLine": 9,
+          "endColumn": 30
+        },
+        {
+          "ruleId": "@intlify/vue-i18n/no-raw-text",
+          "severity": 1,
+          "message": "raw text 'babel' is used",
+          "line": 11,
+          "column": 127,
+          "nodeType": null,
+          "endLine": 11,
+          "endColumn": 132
+        },
+        {
+          "ruleId": "@intlify/vue-i18n/no-raw-text",
+          "severity": 1,
+          "message": "raw text 'eslint' is used",
+          "line": 12,
+          "column": 128,
+          "nodeType": null,
+          "endLine": 12,
+          "endColumn": 134
+        },
+        {
+          "ruleId": "@intlify/vue-i18n/no-raw-text",
+          "severity": 1,
+          "message": "raw text 'Essential Links' is used",
+          "line": 14,
+          "column": 9,
+          "nodeType": null,
+          "endLine": 14,
+          "endColumn": 24
+        },
+        {
+          "ruleId": "@intlify/vue-i18n/no-raw-text",
+          "severity": 1,
+          "message": "raw text 'Core Docs' is used",
+          "line": 16,
+          "column": 70,
+          "nodeType": null,
+          "endLine": 16,
+          "endColumn": 79
+        },
+        {
+          "ruleId": "@intlify/vue-i18n/no-raw-text",
+          "severity": 1,
+          "message": "raw text 'Forum' is used",
+          "line": 17,
+          "column": 76,
+          "nodeType": null,
+          "endLine": 17,
+          "endColumn": 81
+        },
+        {
+          "ruleId": "@intlify/vue-i18n/no-raw-text",
+          "severity": 1,
+          "message": "raw text 'Community Chat' is used",
+          "line": 18,
+          "column": 75,
+          "nodeType": null,
+          "endLine": 18,
+          "endColumn": 89
+        },
+        {
+          "ruleId": "@intlify/vue-i18n/no-raw-text",
+          "severity": 1,
+          "message": "raw text 'Twitter' is used",
+          "line": 19,
+          "column": 78,
+          "nodeType": null,
+          "endLine": 19,
+          "endColumn": 85
+        },
+        {
+          "ruleId": "@intlify/vue-i18n/no-raw-text",
+          "severity": 1,
+          "message": "raw text 'News' is used",
+          "line": 20,
+          "column": 75,
+          "nodeType": null,
+          "endLine": 20,
+          "endColumn": 79
+        },
+        {
+          "ruleId": "@intlify/vue-i18n/no-raw-text",
+          "severity": 1,
+          "message": "raw text 'Ecosystem' is used",
+          "line": 22,
+          "column": 9,
+          "nodeType": null,
+          "endLine": 22,
+          "endColumn": 18
+        },
+        {
+          "ruleId": "@intlify/vue-i18n/no-raw-text",
+          "severity": 1,
+          "message": "raw text 'vue-router' is used",
+          "line": 24,
+          "column": 77,
+          "nodeType": null,
+          "endLine": 24,
+          "endColumn": 87
+        },
+        {
+          "ruleId": "@intlify/vue-i18n/no-raw-text",
+          "severity": 1,
+          "message": "raw text 'vuex' is used",
+          "line": 25,
+          "column": 75,
+          "nodeType": null,
+          "endLine": 25,
+          "endColumn": 79
+        },
+        {
+          "ruleId": "@intlify/vue-i18n/no-raw-text",
+          "severity": 1,
+          "message": "raw text 'vue-devtools' is used",
+          "line": 26,
+          "column": 103,
+          "nodeType": null,
+          "endLine": 26,
+          "endColumn": 115
+        },
+        {
+          "ruleId": "@intlify/vue-i18n/no-raw-text",
+          "severity": 1,
+          "message": "raw text 'vue-loader' is used",
+          "line": 27,
+          "column": 81,
+          "nodeType": null,
+          "endLine": 27,
+          "endColumn": 91
+        },
+        {
+          "ruleId": "@intlify/vue-i18n/no-raw-text",
+          "severity": 1,
+          "message": "raw text 'awesome-vue' is used",
+          "line": 28,
+          "column": 89,
+          "nodeType": null,
+          "endLine": 28,
+          "endColumn": 100
+        }
+      ],
+      "errorCount": 0,
+      "warningCount": 19,
+      "fixableErrorCount": 0,
+      "fixableWarningCount": 0,
+      "source": "<template>\n  <div class=\"hello\">\n    <h1>{{ msg }}</h1>\n    <p>\n      For a guide and recipes on how to configure / customize this project,<br>\n      check out the\n      <a href=\"https://cli.vuejs.org\" target=\"_blank\" rel=\"noopener\">vue-cli documentation</a>.\n    </p>\n    <h3>Installed CLI Plugins</h3>\n    <ul>\n      <li><a href=\"https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel\" target=\"_blank\" rel=\"noopener\">babel</a></li>\n      <li><a href=\"https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint\" target=\"_blank\" rel=\"noopener\">eslint</a></li>\n    </ul>\n    <h3>Essential Links</h3>\n    <ul>\n      <li><a href=\"https://vuejs.org\" target=\"_blank\" rel=\"noopener\">Core Docs</a></li>\n      <li><a href=\"https://forum.vuejs.org\" target=\"_blank\" rel=\"noopener\">Forum</a></li>\n      <li><a href=\"https://chat.vuejs.org\" target=\"_blank\" rel=\"noopener\">Community Chat</a></li>\n      <li><a href=\"https://twitter.com/vuejs\" target=\"_blank\" rel=\"noopener\">Twitter</a></li>\n      <li><a href=\"https://news.vuejs.org\" target=\"_blank\" rel=\"noopener\">News</a></li>\n    </ul>\n    <h3>Ecosystem</h3>\n    <ul>\n      <li><a href=\"https://router.vuejs.org\" target=\"_blank\" rel=\"noopener\">vue-router</a></li>\n      <li><a href=\"https://vuex.vuejs.org\" target=\"_blank\" rel=\"noopener\">vuex</a></li>\n      <li><a href=\"https://github.com/vuejs/vue-devtools#vue-devtools\" target=\"_blank\" rel=\"noopener\">vue-devtools</a></li>\n      <li><a href=\"https://vue-loader.vuejs.org\" target=\"_blank\" rel=\"noopener\">vue-loader</a></li>\n      <li><a href=\"https://github.com/vuejs/awesome-vue\" target=\"_blank\" rel=\"noopener\">awesome-vue</a></li>\n    </ul>\n  </div>\n</template>\n\n<script>\nexport default {\n  name: 'HelloWorld',\n  props: {\n    msg: String\n  }\n}\n</script>\n\n<!-- Add \"scoped\" attribute to limit CSS to this component only -->\n<style scoped>\nh3 {\n  margin: 40px 0 0;\n}\nul {\n  list-style-type: none;\n  padding: 0;\n}\nli {\n  display: inline-block;\n  margin: 0 10px;\n}\na {\n  color: #42b983;\n}\n</style>\n",
+      "usedDeprecatedRules": [],
+      "package": "package2"
+    }
+  ]
+]
