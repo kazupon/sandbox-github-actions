@@ -3,13 +3,14 @@ module.exports = async ({ github, context, core, io }, data) => {
   // console.log('j', j)
   // console.log('data type', typeof data)
   // console.log('data', data)
-  // github.issues.create({
-  //   owner: context.repo.owner,
-  //   repo: context.repo.repo,
-  //   title: 'test test',
-  //   body: 'this is test'
-  // })
+  github.issues.create({
+    owner: context.repo.owner,
+    repo: context.repo.repo,
+    title: 'test test',
+    body: '## `foo`'
+  })
   // console.log('github', github)
+  /*
   const res = await github.graphql(
 `
   {
@@ -37,11 +38,12 @@ module.exports = async ({ github, context, core, io }, data) => {
       }
     }
   }
-`, {}/*, {
+`, {}, {
   headers: {
     authorization: process.env.GITHUB_TOKEN
   }
-}*/)
+})
   console.log('res', JSON.stringify(res))
+  */
   return context
 }
