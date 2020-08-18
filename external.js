@@ -101,7 +101,7 @@ ${
     : '**ファイル数、件数が多すぎて、Issue の本文文字数制限のため、ここで表示できません。上記のコマンドで確認してください！**'
 }
 `;
-    return { pkg: pkg.stat.package, title, body };
+    return { package: pkg.stat.package, title, body };
   });
 
   return reports;
