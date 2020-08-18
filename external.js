@@ -69,6 +69,7 @@ function createReports(blob, data) {
 
     return group.reduce((pkg, item) => {
       const target = { file: item.filePath.split('packages/').pop() };
+      console.log('target', target, item.filePath.split('packages/'))
       target.messages = item.messages.map(msg => {
         return `
 ### \`${msg.message}\`
@@ -101,7 +102,7 @@ ${
     : '**ファイル数、件数が多すぎて、Issue の本文文字数制限のため、ここで表示できません。上記のコマンドで確認してください！**'
 }
 `;
-    return { package: pkg.stat.package, title, body };
+    return { pkg: pkg.stat.package, title, body };
   });
 
   return reports;
