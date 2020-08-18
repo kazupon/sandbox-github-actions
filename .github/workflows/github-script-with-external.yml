@@ -3,18 +3,18 @@ on: push
     
 jobs:
   external:
-    runs-on: ubuntu-latest
+    name: "Test on Node.js ${{ matrix.node }} OS: ${{matrix.os}}"
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node: [10]
     steps:
       - uses: actions/checkout@v2
       - name: get package.json
         id: data
         run: |
           echo "::set-output name=package::$(cat package.json | tr -d '\n')"
-      - name: Test output
-        run: |
-          echo '${{ steps.data.outputs.package }}' | jq '.[]'
-        env:
-          JSON_DUMP: ${{ toJSON(steps.data.outputs.package) }}
       - name: Run eslint with eslint-plugin-vue-i18n
         run: |
           npm run lint:i18n -- -f json -o i18n-lint-raw-report.json
