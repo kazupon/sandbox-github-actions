@@ -92,6 +92,17 @@ https://github.com/kazupon/sandbox-github-actions/blob/${blob}/packages/${target
 - ファイル数: ${pkg.stat.file}
 - 件数: ${pkg.stat.warning}
 
+## i18n 未対応箇所のコマンドでの確認方法
+
+以下のコマンドをターミナルにコピー & ペーストでして確認してください。
+(レポート形式は、ESLintのフォーマットになります。)
+
+\`\`\`sh
+npx eslint --config ./.eslintrc-i18n.js --ext .vue,.js --no-eslintrc --ignore-path ./.eslintignore-i18n ./packages/${
+  pkg.stat.package
+    }
+\`\`\`
+
 ## 詳細
 
 各ファイル、件数の詳細はこちらです。
