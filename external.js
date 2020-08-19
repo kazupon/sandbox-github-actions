@@ -1,7 +1,8 @@
-module.exports = async ({ github, context, core, io }) => {
-  const data = require('./i18n-lint-report.json');
-  const blob = (context && context.sha) || 'master';
+module.exports = async ({ github, context, core, io }, options = { enableBlame: false }) => {
+  const data = require('./i18n-lint-report.json')
+  const blob = (context && context.sha) || 'master'
   const branch = 'master'
+  const { enableBlame } = options
 
   const reports = createReports(blob, data);
   for (const r of reports) {
@@ -19,7 +20,13 @@ module.exports = async ({ github, context, core, io }) => {
         const blameRes = await getBlame(github, context.repo.repo, context.repo.owner, branch, `packages/${filePath}`)
         // console.log('brameRes', JSON.stringify(blameRes))
         for (const message of d.messages) {
-          const comment = createComment(blameRes, filePath, message, blob)
+          const comment = createComment({
+            ranges: blameRes.repository.ref.target.blame.ranges,
+            filePath,
+            message,
+            blob,
+            enableBlame
+          })
           // console.log('comment', comment)
           await github.issues.createComment({
             owner: context.repo.owner,
@@ -36,8 +43,10 @@ module.exports = async ({ github, context, core, io }) => {
   return context
 }
 
-function createComment(blame, filePath, message, blob) {
-  const user = getUser(blame.repository.ref.target.blame.ranges, message) || ''
+function createComment({ ranges, filePath, message, blob, enableBlame }) {
+  const user = enableBlame
+    ? getUser(ranges, message) || ''
+    : ''
   return `# ${filePath}
 ## \`${message.message}\`
 
