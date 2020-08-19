@@ -5,18 +5,18 @@ module.exports = async ({ github, context, core, io }) => {
   const reports = createReports(blob, data);
   for (const r of reports) {
     console.log(`register issue for ${r.package}, ${[...r.body].length}, ${r.body.length} ...`);
-    const issue = await github.issues.create({
+    const issueRes = await github.issues.create({
       owner: context.repo.owner,
       repo: context.repo.repo,
       title: r.title,
       body: r.body
     })
-    console.log('issue', issue)
+    console.log('issue', issueRes)
     for (const d of r.details) {
       await github.issues.createComment({
         owner: context.repo.owner,
         repo: context.repo.repo,
-        issue_number: issue.number,
+        issue_number: issueRes.data.number,
         body: d
       })
     }
