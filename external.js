@@ -17,7 +17,7 @@ module.exports = async ({ github, context, core, io }) => {
       // console.log('detail', d)
       try {
         const filePath = d.file
-        const blameRes = await getBlame(github, context.repo.repo, context.repo.owner, branch, filePath)
+        const blameRes = await getBlame(github, context.repo.repo, context.repo.owner, branch, `packages/${filePath}`)
         console.log('brameRes', JSON.stringify(blameRes))
         for (const message of d.messages) {
           const comment = createComment(blameRes, filePath, message, blob)
