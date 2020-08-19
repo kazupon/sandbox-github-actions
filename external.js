@@ -5,20 +5,21 @@ module.exports = async ({ github, context, core, io }) => {
   const reports = createReports(blob, data);
   for (const r of reports) {
     console.log(`register issue for ${r.package}, ${[...r.body].length}, ${r.body.length} ...`);
-    const issueRes = await github.issues.create({
-      owner: context.repo.owner,
-      repo: context.repo.repo,
-      title: r.title,
-      body: r.body
-    })
-    console.log('issue', issueRes)
+    // const issueRes = await github.issues.create({
+    //   owner: context.repo.owner,
+    //   repo: context.repo.repo,
+    //   title: r.title,
+    //   body: r.body
+    // })
+    // console.log('issue', issueRes)
     for (const d of r.details) {
-      await github.issues.createComment({
-        owner: context.repo.owner,
-        repo: context.repo.repo,
-        issue_number: issueRes.data.number,
-        body: d
-      })
+      console.log('detail', d)
+      // await github.issues.createComment({
+      //   owner: context.repo.owner,
+      //   repo: context.repo.repo,
+      //   issue_number: issueRes.data.number,
+      //   body: d
+      // })
     }
   }
   // console.log('github', github)
@@ -78,12 +79,7 @@ function createReports(blob, data) {
 
     return group.reduce((pkg, item) => {
       const target = { file: item.filePath.split('packages/').pop() };
-      target.messages = item.messages.map(msg => {
-        return `
-### \`${msg.message}\`
-https://github.com/kazupon/sandbox-github-actions/blob/${blob}/packages/${target.file}#L${msg.line}-L${msg.endLine}
-`;
-      });
+      target.messages = item.messages
       pkg.targets.push(target);
       return pkg;
     }, pkg);
@@ -91,12 +87,7 @@ https://github.com/kazupon/sandbox-github-actions/blob/${blob}/packages/${target
 
   const reports = packages.map(pkg => {
     const title = `[${pkg.stat.package}] 👮 ‍️i18n`;
-    const details = []
-    pkg.targets.forEach(({ file, messages }) => {
-      for (const m of messages) {
-        details.push(`## ${file}\n<details>\n${m}\n</details>\n`)
-      }
-    })
+    const details = pkg.targets
     const body = `
 - ファイル数: ${pkg.stat.file}
 - 件数: ${pkg.stat.warning}
