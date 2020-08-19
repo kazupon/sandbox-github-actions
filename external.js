@@ -91,10 +91,12 @@ https://github.com/kazupon/sandbox-github-actions/blob/${blob}/packages/${target
 
   const reports = packages.map(pkg => {
     const title = `[${pkg.stat.package}] 👮 ‍️i18n`;
-    const details = pkg.targets
-      .map(t => {
-        return `### ${t.file}\n<details>\n${t.messages.map(m => m).join('\n')}</details>\n`;
-      })
+    const details = []
+    pkg.targets.forEach(({ file, messages }) => {
+      for (const m of messages) {
+        details.push(`## ${file}\n<details>\n${m}\n</details>\n`)
+      }
+    })
     const body = `
 - ファイル数: ${pkg.stat.file}
 - 件数: ${pkg.stat.warning}
