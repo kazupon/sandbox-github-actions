@@ -5,12 +5,21 @@ module.exports = async ({ github, context, core, io }) => {
   const reports = createReports(blob, data);
   for (const r of reports) {
     console.log(`register issue for ${r.package}, ${[...r.body].length}, ${r.body.length} ...`);
-    await github.issues.create({
+    const issue = await github.issues.create({
       owner: context.repo.owner,
       repo: context.repo.repo,
       title: r.title,
       body: r.body
     })
+    console.log('issue', issue)
+    for (const d of r.details) {
+      await github.issues.createComment({
+        owner: context.repo.owner,
+        repo: context.repo.repo,
+        issue_number: issue.number,
+        body: d
+      })
+    }
   }
   // console.log('github', github)
   /*
@@ -82,11 +91,10 @@ https://github.com/kazupon/sandbox-github-actions/blob/${blob}/packages/${target
 
   const reports = packages.map(pkg => {
     const title = `[${pkg.stat.package}] 👮 ‍️i18n`;
-    const detail = pkg.targets
+    const details = pkg.targets
       .map(t => {
         return `### ${t.file}\n<details>\n${t.messages.map(m => m).join('\n')}</details>\n`;
       })
-      .join('\n\n');
     const body = `
 - ファイル数: ${pkg.stat.file}
 - 件数: ${pkg.stat.warning}
@@ -95,7 +103,7 @@ https://github.com/kazupon/sandbox-github-actions/blob/${blob}/packages/${target
 
 以下のコマンドをターミナルにコピー & ペーストでして確認してください。
 (レポート形式は、ESLintのフォーマットになります。)
-
+      
 @kazupon
 \`\`\`sh
 npx eslint --config ./.eslintrc-i18n.js --ext .vue,.js --no-eslintrc --ignore-path ./.eslintignore-i18n ./packages/${
@@ -103,17 +111,9 @@ npx eslint --config ./.eslintrc-i18n.js --ext .vue,.js --no-eslintrc --ignore-pa
     }
 \`\`\`
 
-## 詳細
-
-各ファイル、件数の詳細はこちらです。
-
-${
-  detail.length <= 60000
-    ? (detail + String(detail) + String(detail))
-    : '**ファイル数、件数が多すぎて、Issue の本文文字数制限のため、ここで表示できません。上記のコマンドで確認してください！**'
-}
+ESLint で検出した未対応箇所は、以下コメントのコメントに投稿された内容を確認してください。
 `;
-    return { package: pkg.stat.package, title, body };
+    return { package: pkg.stat.package, title, body, details };
   });
 
   return reports;
