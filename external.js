@@ -69,7 +69,6 @@ function createReports(blob, data) {
 
     return group.reduce((pkg, item) => {
       const target = { file: item.filePath.split('packages/').pop() };
-      console.log('target', target, item.filePath.split('packages/'))
       target.messages = item.messages.map(msg => {
         return `
 ### \`${msg.message}\`
@@ -97,6 +96,7 @@ https://github.com/kazupon/sandbox-github-actions/blob/${blob}/packages/${target
 以下のコマンドをターミナルにコピー & ペーストでして確認してください。
 (レポート形式は、ESLintのフォーマットになります。)
 
+@kazupon
 \`\`\`sh
 npx eslint --config ./.eslintrc-i18n.js --ext .vue,.js --no-eslintrc --ignore-path ./.eslintignore-i18n ./packages/${
   pkg.stat.package
@@ -113,7 +113,7 @@ ${
     : '**ファイル数、件数が多すぎて、Issue の本文文字数制限のため、ここで表示できません。上記のコマンドで確認してください！**'
 }
 `;
-    return { pkg: pkg.stat.package, title, body };
+    return { package: pkg.stat.package, title, body };
   });
 
   return reports;
