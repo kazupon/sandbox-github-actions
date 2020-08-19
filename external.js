@@ -15,7 +15,16 @@ module.exports = async ({ github, context, core, io }) => {
     // console.log('issue', issueRes)
     for (const d of r.details) {
       // console.log('detail', d)
-      getBlame(github, context.repo.repo, context.repo.owner, branch, d.file)
+      try {
+        const filePath = d.file
+        const blameRes = await getBlame(github, context.repo.repo, context.repo.owner, branch, filePath)
+        for (const message of d.messages) {
+          const comment = createComment(blameRes.data, filePath, message, blob)
+          console.log('comment', comment)
+        }
+      } catch (e) {
+        console.error(e)
+      }
       // await github.issues.createComment({
       //   owner: context.repo.owner,
       //   repo: context.repo.repo,
@@ -63,9 +72,33 @@ module.exports = async ({ github, context, core, io }) => {
   return context
 }
 
-async function getBlame(github, repo, owner, branch, path) {
+function createComment(blame, filePath, message, blob) {
+  const user = getUser(blame.repository.ref.target.blame.ranges, message) || ''
+  return `# ${filePath}
+## \`${message.message}\`
+
+${user ? `最終コード編集者: @${user}` : ''}
+
+https://github.com/kazupon/sandbox-github-actions/blob/${blob}/${filePath}#L${message.line}-L${message.endLine}
+`
+}
+
+function getUser(ranges, message) {
+  console.log('getUser: ranges', ranges)
+  console.log('getUser: message', message)
+  const user = null
+  for (const range of ranges) {
+    if (message.line >= range.startingLine || message.line <= range.endingLine) {
+      user = range.commit.author.user.login
+      break
+    }
+  }
+  return user
+}
+
+function getBlame(github, repo, owner, branch, path) {
   console.log('getblame', repo, owner, branch, path)
-  const res = await github.graphql(
+  return github.graphql(
     `
       {
         repository(owner: "${owner}", name: "${repo}") {
@@ -98,7 +131,6 @@ async function getBlame(github, repo, owner, branch, path) {
       }
     `
   )
-  console.log('blame', res)
 }
 
 function createReports(blob, data) {
