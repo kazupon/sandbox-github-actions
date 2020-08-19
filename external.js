@@ -1,6 +1,7 @@
 module.exports = async ({ github, context, core, io }) => {
   const data = require('./i18n-lint-report.json');
   const blob = (context && context.sha) || 'master';
+  const branch = 'master'
 
   const reports = createReports(blob, data);
   for (const r of reports) {
@@ -14,6 +15,7 @@ module.exports = async ({ github, context, core, io }) => {
     // console.log('issue', issueRes)
     for (const d of r.details) {
       console.log('detail', d)
+      getBlame(github, context.repo.owner, context.repo.repo, branch, d.file)
       // await github.issues.createComment({
       //   owner: context.repo.owner,
       //   repo: context.repo.repo,
@@ -59,6 +61,39 @@ module.exports = async ({ github, context, core, io }) => {
   console.log('res', JSON.stringify(res))
   */
   return context
+}
+
+async function getBlame(github, repo, owner, branch, path) {
+  const res = await github.graphql(
+    `
+      {
+        repository(owner: "${owner}", name: "${repo}") {
+          ref(qualifiedName:"${branch}") {  
+            name
+            target {
+              ... on Commit {
+                author {
+                  name
+                }
+                blame(path:"${path}") {
+                  ranges {
+                    commit {
+                      author {
+                        name
+                      }
+                    }
+                    startingLine
+                    endingLine
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    `
+  )
+  console.log('res', JSON.stringify(res))
 }
 
 function createReports(blob, data) {
