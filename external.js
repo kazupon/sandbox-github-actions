@@ -87,7 +87,7 @@ https://github.com/kazupon/sandbox-github-actions/blob/${blob}/packages/${filePa
 function getUser(ranges, message) {
   console.log('getUser: ranges', ranges)
   console.log('getUser: message', message)
-  const user = null
+  let user = null
   for (const range of ranges) {
     if (message.line >= range.startingLine || message.line <= range.endingLine) {
       user = range.commit.author.user.login
