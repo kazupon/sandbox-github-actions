@@ -15,7 +15,7 @@ module.exports = async ({ github, context, core, io }) => {
     // console.log('issue', issueRes)
     for (const d of r.details) {
       console.log('detail', d)
-      getBlame(github, context.repo.owner, context.repo.repo, branch, d.file)
+      getBlame(github, context.repo.repo, context.repo.owner, branch, d.file)
       // await github.issues.createComment({
       //   owner: context.repo.owner,
       //   repo: context.repo.repo,
