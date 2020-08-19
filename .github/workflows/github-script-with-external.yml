@@ -30,6 +30,4 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const script = require(`${process.env.GITHUB_WORKSPACE}/external.js`)
-            script({ github, context, core, io })
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            script({ github, context, core, io }, { enableBlame: true })
