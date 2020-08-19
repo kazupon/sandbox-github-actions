@@ -64,6 +64,7 @@ module.exports = async ({ github, context, core, io }) => {
 }
 
 async function getBlame(github, repo, owner, branch, path) {
+  console.log('getblame', repo, owner, branch, path)
   const res = await github.graphql(
     `
       {
