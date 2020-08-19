@@ -14,7 +14,7 @@ module.exports = async ({ github, context, core, io }) => {
     // })
     // console.log('issue', issueRes)
     for (const d of r.details) {
-      console.log('detail', d)
+      // console.log('detail', d)
       getBlame(github, context.repo.repo, context.repo.owner, branch, d.file)
       // await github.issues.createComment({
       //   owner: context.repo.owner,
@@ -74,13 +74,17 @@ async function getBlame(github, repo, owner, branch, path) {
             target {
               ... on Commit {
                 author {
-                  name
+                  user {
+                    login
+                  }
                 }
                 blame(path:"${path}") {
                   ranges {
                     commit {
                       author {
-                        name
+                        user {
+                          login
+                        }
                       }
                     }
                     startingLine
@@ -94,7 +98,7 @@ async function getBlame(github, repo, owner, branch, path) {
       }
     `
   )
-  console.log('res', JSON.stringify(res))
+  console.log('blame', res)
 }
 
 function createReports(blob, data) {
