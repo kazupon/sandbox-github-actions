@@ -109,7 +109,7 @@ npx eslint --config ./.eslintrc-i18n.js --ext .vue,.js --no-eslintrc --ignore-pa
 
 ${
   detail.length <= 60000
-    ? detail
+    ? (detail + String(detail) + String(detail))
     : '**ファイル数、件数が多すぎて、Issue の本文文字数制限のため、ここで表示できません。上記のコマンドで確認してください！**'
 }
 `;
