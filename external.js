@@ -80,7 +80,7 @@ function createComment(blame, filePath, message, blob) {
 
 ${user ? `最終コード編集者: @${user}` : ''}
 
-https://github.com/kazupon/sandbox-github-actions/blob/${blob}/${filePath}#L${message.line}-L${message.endLine}
+https://github.com/kazupon/sandbox-github-actions/blob/${blob}/packages/${filePath}#L${message.line}-L${message.endLine}
 `
 }
 
